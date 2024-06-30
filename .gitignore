@@ -34,3 +34,4 @@ build/
 
 ### Ignoring sensitive details ###
 src/main/resources/application.properties
+docker-compose.yml
