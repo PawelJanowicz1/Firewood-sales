@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>firewood-saless</artifactId>
+    <artifactId>firewood-sales</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>firewood-saless</name>
-    <description>firewood-saless</description>
+    <name>firewood-sales</name>
+    <description>firewood-sales</description>
     <url/>
     <licenses>
         <license/>
