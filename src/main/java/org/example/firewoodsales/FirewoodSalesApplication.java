@@ -1,13 +1,13 @@
-package org.example.firewoodsaless;
+package org.example.firewoodsales;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FirewoodSalessApplication {
+public class FirewoodSalesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FirewoodSalessApplication.class, args);
+        SpringApplication.run(FirewoodSalesApplication.class, args);
     }
 
 }
