@@ -13759,8 +13759,8 @@ textarea.form-control-lg {
     filter: blur(10px);
 }
 
-.background-image {
-    background-color: #aa5709;
+.background-color {
+    background-color: #989faa;
 }
 
 .background-image::before {
@@ -13770,7 +13770,7 @@ textarea.form-control-lg {
 
 .bigger-font {
     font-size: 25px;
-    font-family: "Copperplate", Arial, Serif;
+    font-family: "Charm", Arial, Serif;
 }
 
 .center {
@@ -13826,7 +13826,7 @@ textarea.form-control-lg {
 }
 
 .btn-custom {
-    background-color: #c36410;
+    background-color: #cad8fa;
     color: white;
     border-radius: 25px;
     padding: 0.75rem 1.5rem;
@@ -13834,7 +13834,7 @@ textarea.form-control-lg {
 }
 
 .btn-custom:hover {
-    background-color: #dd8b15;
+    background-color: #cad8fa;
 }
 
 .sizing {
@@ -13870,7 +13870,7 @@ textarea.form-control-lg {
 }
 
 .custom-border {
-    border: 3px solid #c36410;
+    border: 3px solid #cad8fa;
     border-radius: 10px;
     padding: 20px;
 }
@@ -13888,7 +13888,7 @@ textarea.form-control-lg {
 }
 
 .navbar-custom {
-    background: #aa5709;
+    background: #e8edf8;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: absolute;
     width: 100%;
@@ -13896,13 +13896,13 @@ textarea.form-control-lg {
 }
 
 .navbar-custom .navbar-nav .nav-link:hover {
-    color: #dd8b15;
+    color: #cad8fa;
     transform: translateY(-5px);
 }
 
 .navbar-custom .navbar-brand {
     font-weight: bold;
-    color: #d9534f;
+    color: #cad8fa;
 }
 
 .bigger-font {
@@ -13942,7 +13942,7 @@ textarea.form-control-lg {
 
 
 .custom-border-2 {
-    border-bottom: 2px double #c36410;
+    border-bottom: 2px double #d5dfef;
 }
 
 .card-2 {
@@ -14222,7 +14222,7 @@ address a:active {
 }
 
 .navbar-custom .navbar-nav .nav-link:hover {
-    color: #dd8b15;
+    color: #cad8fa;
     transform: translateY(-5px);
 }
 

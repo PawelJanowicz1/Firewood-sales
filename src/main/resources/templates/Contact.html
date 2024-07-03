@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drewno kominkowe - Kontakt</title>
+  <link href="/css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="background-color">
+<nav class="navbar navbar-expand-lg navbar-custom custom-border-2 d-none d-lg-flex" >
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link bigger-font hover-lift px-4" href="#onas">O nas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bigger-font hover-lift px-4" href="#services">Usługi</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bigger-font hover-lift px-4" href="#cennik">Cennik</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<nav class="navbar-custom custom-border-2 d-lg-none navbar-mobile">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="mobileNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link bigger-font" href="#onas">Kim jesteśmy?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bigger-font" href="#services">Oferta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bigger-font" href="#cennik">Cennik</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bigger-font" href="#kontakt">Kontakt</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section id="kontakt" class="my-5">
+  <h2 class="font-family">Kontakt</h2>
+  <h3 class="font-family">Skontaktuj się z nami telefonicznie lub poprzez formularz kontaktowy poniżej</h3>
+  <br>
+  <div class="form-container custom-border">
+    <form id="contactForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Imię:</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Numer telefonu: (Opcjonalnie)</label>
+        <input type="tel" class="form-control" id="phoneNumber">
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Wiadomość:</label>
+        <textarea id="message" class="form-control textarea-style" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-custom">Wyślij</button>
+    </form>
+  </div>
+  <div class="successMessage">
+    <p>Wiadomość została wysłana pomyślnie! Skontaktujemy się z tobą w jak najkrótszym czasie.</p>
+  </div>
+  <br>
+  <address class="font-family bigger-font-2">
+    <strong>Piotr Janowicz</strong><br>
+    <a href="tel:+48609459833">+48 609459833</a><br>
+    <a href="mailto:dobrypiasek@gmail.com">dobrypiasek@gmail.com</a><br>
+    Juliusza Słowackiego 249<br>
+    80-369 Gdańsk
+  </address>
+</section>
+<script src="/js/script.js"></script>
+</body>
+</html>
