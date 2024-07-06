@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drewno kominkowe - Strona główna</title>
+    <title>Drewno kominkowe - Cennik</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body class="background-color">
@@ -20,6 +20,9 @@
                 <a class="nav-link bigger-font hover-lift px-4" href="contact">Kontakt</a>
             </li>
         </ul>
+    </div>
+    <div class="ml-auto">
+        <button class="btn btn-outline-primary ml-2" onclick="showCart()">Koszyk</button>
     </div>
 </nav>
 <nav class="navbar-custom custom-border-2 d-lg-none navbar-mobile">
@@ -38,6 +41,9 @@
             </ul>
         </div>
     </div>
+    <div class="ml-auto">
+        <button class="btn btn-outline-primary ml-2" onclick="showCart()">Koszyk</button>
+    </div>
 </nav>
 <br>
 <br>
@@ -47,35 +53,122 @@
             <div class="col-md-6">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-center">Podstawowy</h4>
+                        <h4 class="my-0 font-weight-normal text-center">Buk</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">50 zł <small class="text-muted">/ bukowe</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>Jakość podstawowa</li>
-                            <li>Bez dodatkowych opcji</li>
-                            <li>Bez gwarancji</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Wybierz plan</button>
+                        <h1 class="card-title pricing-card-title">50 zł <small class="text-muted">/ 25 cm</small></h1>
+                        <label for="bukLength">Wybierz długość:</label>
+                        <select id="bukLength" class="form-control">
+                            <option value="25">25 cm</option>
+                            <option value="30">30 cm</option>
+                            <option value="33">33 cm</option>
+                            <option value="35">35 cm</option>
+                            <option value="40">40 cm</option>
+                        </select>
+                        <button id="addToCart1" type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addToCart('Buk')">Dodaj do koszyka</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-center">Premium</h4>
+                        <h4 class="my-0 font-weight-normal text-center">Dąb</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">100 zł <small class="text-muted">/ grabowe</small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>Wysoka jakość</li>
-                            <li>Dodatkowe opcje dostępne</li>
-                            <li>Gwarancja jakości</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Wybierz plan</button>
+                        <h1 class="card-title pricing-card-title">55 zł <small class="text-muted">/ 30 cm</small></h1>
+                        <label for="dabLength">Wybierz długość:</label>
+                        <select id="dabLength" class="form-control">
+                            <option value="25">25 cm</option>
+                            <option value="30">30 cm</option>
+                            <option value="33">33 cm</option>
+                            <option value="35">35 cm</option>
+                            <option value="40">40 cm</option>
+                        </select>
+                        <button id="addToCart2" type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addToCart('Dąb')">Dodaj do koszyka</button>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-center">Grab</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">60 zł <small class="text-muted">/ 33 cm</small></h1>
+                        <label for="grabLength">Wybierz długość:</label>
+                        <select id="grabLength" class="form-control">
+                            <option value="25">25 cm</option>
+                            <option value="30">30 cm</option>
+                            <option value="33">33 cm</option>
+                            <option value="35">35 cm</option>
+                            <option value="40">40 cm</option>
+                        </select>
+                        <button id="addToCart3" type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addToCart('Grab')">Dodaj do koszyka</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-center">Sosna</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">45 zł <small class="text-muted">/ 35 cm</small></h1>
+                        <label for="sosnaLength">Wybierz długość:</label>
+                        <select id="sosnaLength" class="form-control">
+                            <option value="25">25 cm</option>
+                            <option value="30">30 cm</option>
+                            <option value="33">33 cm</option>
+                            <option value="35">35 cm</option>
+                            <option value="40">40 cm</option>
+                        </select>
+                        <button id="addToCart4" type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addToCart('Sosna')">Dodaj do koszyka</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-center">Brzoza</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">65 zł <small class="text-muted">/ 40 cm</small></h1>
+                        <label for="brzozaLength">Wybierz długość:</label>
+                        <select id="brzozaLength" class="form-control">
+                            <option value="25">25 cm</option>
+                            <option value="30">30 cm</option>
+                            <option value="33">33 cm</option>
+                            <option value="35">35 cm</option>
+                            <option value="40">40 cm</option>
+                        </select>
+                        <button id="addToCart5" type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addToCart('Brzoza')">Dodaj do koszyka</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal text-center">Drewno do rozpałki</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">30 zł <small class="text-muted">/ sztuka</small></h1>
+                        <label for="rozpalkaQuantity">Wybierz ilość:</label>
+                        <select id="rozpalkaQuantity" class="form-control">
+                            <option value="1">1 sztuka</option>
+                            <option value="2">2 sztuki</option>
+                            <option value="3">3 sztuki</option>
+                            <option value="4">4 sztuki</option>
+                            <option value="5">5 sztuk</option>
+                        </select>
+                        <button id="addToCart6" type="button" class="btn btn-lg btn-block btn-outline-primary" onclick="addToCart('Drewno do rozpałki')">Dodaj do koszyka</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
