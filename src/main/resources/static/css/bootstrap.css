@@ -729,7 +729,7 @@ progress {
 
 .img-fluid {
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .img-thumbnail {
@@ -14354,4 +14354,10 @@ address a:active {
 
 .navbar-custom .navbar-nav .nav-link {
     font-size: 2.2vw;
+}
+
+.custom-img-size {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
 }
