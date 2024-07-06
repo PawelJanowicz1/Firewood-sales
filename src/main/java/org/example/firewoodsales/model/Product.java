@@ -2,7 +2,6 @@ package org.example.firewoodsales.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.example.firewoodsales.POJO.Cart;
 
 @Entity
 @Data
