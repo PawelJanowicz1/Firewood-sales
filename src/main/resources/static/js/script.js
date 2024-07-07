@@ -71,82 +71,79 @@ async function sendContactForm() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Nasłuchiwanie kliknięć dla przycisków "Dodaj do koszyka"
-    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-            const type = button.dataset.type;
-            addToCart(type);
-        });
+    const addToCartButtons = [
+        { type: 'Buk', id: 'addToCart1', selectId: 'bukLength' },
+        { type: 'Dąb', id: 'addToCart2', selectId: 'dabLength' },
+        { type: 'Grab', id: 'addToCart3', selectId: 'grabLength' },
+        { type: 'Sosna', id: 'addToCart4', selectId: 'sosnaLength' },
+        { type: 'Brzoza', id: 'addToCart5', selectId: 'brzozaLength' },
+        { type: 'Drewno do rozpałki', id: 'addToCart6', selectId: 'rozpalkaQuantity' }
+    ];
+
+    addToCartButtons.forEach(button => {
+        const addToCartButton = document.getElementById(button.id);
+        if (addToCartButton) {
+            addToCartButton.addEventListener('click', () => {
+                const lengthSelect = document.getElementById(button.selectId);
+                if (lengthSelect) {
+                    const length = lengthSelect.value;
+                    addToCart(button.type, length);
+                } else {
+                    console.error(`Element with ID ${button.selectId} not found.`);
+                }
+            });
+        } else {
+            console.error(`Element with ID ${button.id} not found.`);
+        }
     });
 
-    // Nasłuchiwanie kliknięcia dla przycisku "Koszyk"
-    const cartButton = document.getElementById('showCartButton');
-    if (cartButton) {
-        cartButton.addEventListener('click', () => {
-            showCart();
-        });
+    const showCartButton = document.getElementById('showCart');
+    if (showCartButton) {
+        showCartButton.addEventListener('click', showCart);
+    } else {
+        console.error('Element with ID showCart not found.');
     }
 });
 
-function addToCart(type) {
-    let product;
-    if (type === 'Buk' || type === 'Dąb' || type === 'Grab' || type === 'Sosna' || type === 'Brzoza') {
-        const lengthElement = document.getElementById(type.toLowerCase() + 'Length');
-        const length = parseInt(lengthElement.value);
-        product = {
-            type: type,
-            length: length
-        };
-    } else if (type === 'Drewno do rozpałki') {
-        const quantityElement = document.getElementById('rozpalkaQuantity');
-        const quantity = parseInt(quantityElement.value);
-        product = {
-            type: type,
-            quantity: quantity
-        };
-    } else {
-        console.error('Nieznany typ produktu: ' + type);
+function addToCart(productType, length) {
+    if (!length) {
+        alert('Nie wybrano rozmiaru drewna');
         return;
     }
 
-    fetch('http://localhost:8086/cart/add', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(product),
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Nie udało się dodać produktu do koszyka');
-            }
-            console.log('Produkt został dodany do koszyka');
-        })
-        .catch(error => {
-            console.error('Błąd podczas dodawania produktu do koszyka:', error);
-        });
+    const product = { type: productType, length: parseInt(length, 10) };
+    const cart = getCart();
+    cart.push(product);
+    saveCart(cart);
+
+    alert(`Dodano do koszyka: ${productType}, ${length} cm`);
+}
+
+function getCart() {
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+}
+
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function showCart() {
-    fetch('http://localhost:8086/cart', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'Accept': 'application/json'
-        },
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Nie udało się pobrać zawartości koszyka');
-            }
-            return response.json();
-        })
-        .then(cart => {
-            console.log('Aktualna zawartość koszyka:', cart);
-            alert('Aktualna zawartość koszyka: ' + JSON.stringify(cart));
-        })
-        .catch(error => {
-            console.error('Błąd podczas pobierania zawartości koszyka:', error);
+    const cart = getCart();
+    let cartContent = 'Zawartość koszyka:\n';
+    if (cart.length === 0) {
+        cartContent += 'Koszyk jest pusty.';
+    } else {
+        cart.forEach((product, index) => {
+            cartContent += `${index + 1}. ${product.type}, ${product.length} cm\n`;
         });
+    }
+    alert(cartContent);
+}
+
+function deleteFromCart(productType, length) {
+    let cart = getCart();
+    cart = cart.filter(product => !(product.type === productType && product.length === parseInt(length)));
+    saveCart(cart);
+    alert(`Usunięto z koszyka: ${productType}, ${length} cm`);
 }
