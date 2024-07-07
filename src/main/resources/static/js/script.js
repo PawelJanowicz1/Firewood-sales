@@ -128,19 +128,6 @@ function saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function showCart() {
-    const cart = getCart();
-    let cartContent = 'Zawartość koszyka:\n';
-    if (cart.length === 0) {
-        cartContent += 'Koszyk jest pusty.';
-    } else {
-        cart.forEach((product, index) => {
-            cartContent += `${index + 1}. ${product.type}, ${product.length} cm\n`;
-        });
-    }
-    alert(cartContent);
-}
-
 function deleteFromCart(productType, length) {
     let cart = getCart();
     cart = cart.filter(product => !(product.type === productType && product.length === parseInt(length)));

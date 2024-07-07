@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drewno kominkowe - Strona główna</title>
+    <title>Drewno kominkowe - Koszyk</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
 </head>
 <body class="background-color full-height">
 <nav class="navbar navbar-expand-lg navbar-custom custom-border-2 d-none d-lg-flex">
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link bigger-font hover-lift px-4" href="/">Kim jesteśmy?</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link bigger-font hover-lift px-4" href="offer">Oferta</a>
             </li>
@@ -19,9 +22,6 @@
             <li class="nav-item">
                 <a class="nav-link bigger-font hover-lift px-4" href="contact">Kontakt</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link bigger-font hover-lift px-4" href="cart">Koszyk</a>
-            </li>
         </ul>
     </div>
 </nav>
@@ -29,6 +29,9 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="mobileNavbar">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link bigger-font hover-lift px-4" href="/">Kim jesteśmy?</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link bigger-font" href="offer">Oferta</a>
                 </li>
@@ -44,31 +47,13 @@
 </nav>
 <br>
 <br>
-<br>
-<br>
-<br>
-<div class="content">
-    <section class="bg-light py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="font-family">Firma drewko-drewko wita!</h1>
-                    <p class="lead font-family">Jesteśmy na rynku od ponad 20 lat, dostarczając wysokiej jakości drewno kominkowe i opałowe.</p>
-                    <p class="font-family">Specjalizujemy się w sprzedaży drewna kominkowego, opałowego oraz rozpałki. Oferujemy różne gatunki drewna:</p>
-                    <ul class="list-unstyled font-family">
-                        <li>Buk</li>
-                        <li>Dąb</li>
-                        <li>Grab</li>
-                        <li>Sosna</li>
-                        <li>Brzoza</li>
-                        <li>Drewno do rozpałki</li>
-                    </ul>
-                    <p class="font-family">Tniemy drewno na dowolne długości. W razie jakichkolwiek pytań prosimy przejść na zakładkę <a href="contact">kontakt</a>.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="container mt-5">
+    <h1>Twój Koszyk</h1>
+    <div id="cartContent">
+    </div>
+    <button id="emptyCart" class="btn btn-danger mt-3">Opróżnij Koszyk</button>
 </div>
 <script src="/js/script.js"></script>
+<script src="cart.js" defer></script>
 </body>
 </html>

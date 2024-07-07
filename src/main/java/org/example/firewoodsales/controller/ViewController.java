@@ -20,4 +20,9 @@ public class ViewController {
     String contactView(){
         return "contact";
     }
+
+    @GetMapping("/cart")
+    public String cartView(){
+        return "cart";
+    }
 }
