@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 form.style.display = 'none';
                 placeOrderButton.style.display = 'none';
-
-
+                localStorage.clear();
+                window.location.href = 'success';
             } else {
                 const errorMessage = await response.text();
                 alert('Błąd podczas składania zamówienia: ' + errorMessage);
