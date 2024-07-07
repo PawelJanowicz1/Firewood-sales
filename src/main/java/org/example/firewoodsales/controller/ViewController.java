@@ -25,4 +25,9 @@ public class ViewController {
     String checkoutView(){
         return "checkout";
     }
+
+    @GetMapping("/success")
+    String successView(){
+        return "success";
+    }
 }
