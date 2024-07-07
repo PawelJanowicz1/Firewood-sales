@@ -24,12 +24,14 @@ function saveCart(cart) {
 function displayCart() {
     const cart = getCart();
     const cartContent = document.getElementById('cartContent');
+    const totalPriceElement = document.getElementById('totalPrice');
     const emptyCartButton = document.getElementById('emptyCart');
 
     cartContent.innerHTML = '';
 
     if (cart.length === 0) {
         cartContent.innerHTML = '<p>Koszyk jest pusty.</p>';
+        totalPriceElement.innerHTML = '';
         emptyCartButton.style.display = 'none';
         return;
     }
@@ -38,18 +40,25 @@ function displayCart() {
 
     const list = document.createElement('ul');
     list.className = 'list-group';
+    let totalPrice = 0;
 
     cart.forEach((product, index) => {
         const item = document.createElement('li');
         item.className = 'list-group-item d-flex justify-content-between align-items-center';
 
         let displayText = '';
+        let productPrice = 0;
+
         if (product.type === 'Drewno do rozpałki') {
             displayText = `${product.type}, ${product.length} szt.`;
+            productPrice = product.length * 50 + 100; // Cena za drewno do rozpałki i transport
         } else {
             displayText = `${product.type}, ${product.length} cm, ${product.volume} mp`;
+            productPrice = product.volume * product.pricePerMp;
         }
-        item.textContent = displayText;
+
+        item.textContent = `${displayText} - ${productPrice} PLN`;
+        totalPrice += productPrice;
 
         const deleteButton = document.createElement('button');
         deleteButton.className = 'btn btn-danger btn-sm';
@@ -63,6 +72,7 @@ function displayCart() {
     });
 
     cartContent.appendChild(list);
+    totalPriceElement.textContent = `Łączna cena: ${totalPrice} PLN`;
 }
 
 function deleteFromCart(index) {

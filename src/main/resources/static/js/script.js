@@ -72,12 +72,12 @@ async function sendContactForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = [
-        { type: 'Buk', id: 'addToCart1', lengthSelectId: 'bukLength', volumeSelectId: 'bukVolume' },
-        { type: 'Dąb', id: 'addToCart2', lengthSelectId: 'dabLength', volumeSelectId: 'dabVolume' },
-        { type: 'Grab', id: 'addToCart3', lengthSelectId: 'grabLength', volumeSelectId: 'grabVolume' },
-        { type: 'Sosna', id: 'addToCart4', lengthSelectId: 'sosnaLength', volumeSelectId: 'sosnaVolume' },
-        { type: 'Brzoza', id: 'addToCart5', lengthSelectId: 'brzozaLength', volumeSelectId: 'brzozaVolume' },
-        { type: 'Drewno do rozpałki', id: 'addToCart6', lengthSelectId: 'rozpalkaQuantity' }
+        { type: 'Buk', id: 'addToCart1', lengthSelectId: 'bukLength', volumeSelectId: 'bukVolume', pricePerMp: 100 },
+        { type: 'Dąb', id: 'addToCart2', lengthSelectId: 'dabLength', volumeSelectId: 'dabVolume', pricePerMp: 110 },
+        { type: 'Grab', id: 'addToCart3', lengthSelectId: 'grabLength', volumeSelectId: 'grabVolume', pricePerMp: 120 },
+        { type: 'Sosna', id: 'addToCart4', lengthSelectId: 'sosnaLength', volumeSelectId: 'sosnaVolume', pricePerMp: 90 },
+        { type: 'Brzoza', id: 'addToCart5', lengthSelectId: 'brzozaLength', volumeSelectId: 'brzozaVolume', pricePerMp: 95 },
+        { type: 'Drewno do rozpałki', id: 'addToCart6', lengthSelectId: 'rozpalkaQuantity', pricePerMp: 50 }
     ];
 
     addToCartButtons.forEach(button => {
@@ -95,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             volume = volumeSelect.value;
                         }
                     }
+
                     if (length) {
-                        addToCart(button.type, length, volume);
+                        addToCart(button.type, length, volume, button.pricePerMp);
                     } else {
                         alert('Nie wybrano rozmiaru drewna');
                     }
@@ -108,20 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error(`Element with ID ${button.id} not found.`);
         }
     });
-
-    const showCartButton = document.getElementById('showCart');
-    if (showCartButton) {
-        showCartButton.addEventListener('click', showCart);
-    } else {
-        console.error('Element with ID showCart not found.');
-    }
 });
 
-function addToCart(productType, length, volume) {
+function addToCart(productType, length, volume, pricePerMp) {
     const product = {
         type: productType,
         length: parseInt(length, 10),
-        volume: volume ? parseInt(volume, 10) : undefined
+        volume: volume ? parseInt(volume, 10) : undefined,
+        pricePerMp: pricePerMp
     };
 
     const cart = getCart();
