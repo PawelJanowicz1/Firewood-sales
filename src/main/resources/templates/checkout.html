@@ -66,9 +66,9 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="phoneNumber" class="form-label">Numer telefonu</label>
-                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{9}">
                 <div class="invalid-feedback">
-                    Proszę podać numer telefonu.
+                    Numer telefonu musi zawierać 9 cyfr.
                 </div>
             </div>
         </div>
@@ -95,9 +95,9 @@
         <div class="row mb-3">
             <div class="col-md-2">
                 <label for="zipCode" class="form-label">Kod pocztowy</label>
-                <input type="text" class="form-control" id="zipCode" name="zipCode" required>
+                <input type="text" class="form-control" id="zipCode" name="zipCode" required pattern="[0-9]{2}-[0-9]{3}">
                 <div class="invalid-feedback">
-                    Proszę podać kod pocztowy w formacie xx-xxx.
+                    Kod pocztowy musi być w formacie xx-xxx.
                 </div>
             </div>
         </div>
@@ -113,6 +113,8 @@
         <button id="placeOrder" class="btn btn-primary">Kup</button>
     </form>
 </div>
+<script src="/js/cart.js" defer></script>
+<script src="/js/checkout.js" defer></script>
 <script src="/js/script.js"></script>
 </body>
 </html>

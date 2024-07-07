@@ -72,12 +72,12 @@ async function sendContactForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = [
-        { type: 'Buk', id: 'addToCart1', lengthSelectId: 'bukLength', volumeSelectId: 'bukVolume', pricePerMp: 100 },
-        { type: 'Dąb', id: 'addToCart2', lengthSelectId: 'dabLength', volumeSelectId: 'dabVolume', pricePerMp: 110 },
-        { type: 'Grab', id: 'addToCart3', lengthSelectId: 'grabLength', volumeSelectId: 'grabVolume', pricePerMp: 120 },
-        { type: 'Sosna', id: 'addToCart4', lengthSelectId: 'sosnaLength', volumeSelectId: 'sosnaVolume', pricePerMp: 90 },
-        { type: 'Brzoza', id: 'addToCart5', lengthSelectId: 'brzozaLength', volumeSelectId: 'brzozaVolume', pricePerMp: 95 },
-        { type: 'Drewno do rozpałki', id: 'addToCart6', lengthSelectId: 'rozpalkaQuantity', pricePerMp: 50 }
+        { type: 'Buk', id: 'addToCart1', lengthSelectId: 'bukLength', volumeSelectId: 'bukVolume' },
+        { type: 'Dąb', id: 'addToCart2', lengthSelectId: 'dabLength', volumeSelectId: 'dabVolume' },
+        { type: 'Grab', id: 'addToCart3', lengthSelectId: 'grabLength', volumeSelectId: 'grabVolume' },
+        { type: 'Sosna', id: 'addToCart4', lengthSelectId: 'sosnaLength', volumeSelectId: 'sosnaVolume' },
+        { type: 'Brzoza', id: 'addToCart5', lengthSelectId: 'brzozaLength', volumeSelectId: 'brzozaVolume' },
+        { type: 'Drewno do rozpałki', id: 'addToCart6', lengthSelectId: 'rozpalkaQuantity' }
     ];
 
     addToCartButtons.forEach(button => {
@@ -85,19 +85,44 @@ document.addEventListener('DOMContentLoaded', () => {
         if (addToCartButton) {
             addToCartButton.addEventListener('click', () => {
                 const lengthSelect = document.getElementById(button.lengthSelectId);
+                let volume = null;
+                if (button.type !== 'Drewno do rozpałki') {
+                    const volumeSelect = document.getElementById(button.volumeSelectId);
+                    if (volumeSelect) {
+                        volume = volumeSelect.value;
+                    }
+                }
+
+                let price = 0;
+
+                switch (button.type) {
+                    case 'Buk':
+                        price = 340 * parseInt(volume, 10);
+                        break;
+                    case 'Dąb':
+                        price = 320 * parseInt(volume, 10);
+                        break;
+                    case 'Grab':
+                        price = 390 * parseInt(volume, 10);
+                        break;
+                    case 'Sosna':
+                        price = 250 * parseInt(volume, 10);
+                        break;
+                    case 'Brzoza':
+                        price = 300 * parseInt(volume, 10);
+                        break;
+                    case 'Drewno do rozpałki':
+                        price = 20;
+                        break;
+                    default:
+                        price = 0;
+                        break;
+                }
+
                 if (lengthSelect) {
                     const length = lengthSelect.value;
-                    let volume = null;
-
-                    if (button.type !== 'Drewno do rozpałki') {
-                        const volumeSelect = document.getElementById(button.volumeSelectId);
-                        if (volumeSelect) {
-                            volume = volumeSelect.value;
-                        }
-                    }
-
                     if (length) {
-                        addToCart(button.type, length, volume, button.pricePerMp);
+                        addToCart(button.type, length, volume, price);
                     } else {
                         alert('Nie wybrano rozmiaru drewna');
                     }
@@ -111,12 +136,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function addToCart(productType, length, volume, pricePerMp) {
+function addToCart(productType, length, volume, price) {
     const product = {
         type: productType,
         length: parseInt(length, 10),
         volume: volume ? parseInt(volume, 10) : undefined,
-        pricePerMp: pricePerMp
+        price: price
     };
 
     const cart = getCart();
@@ -128,15 +153,6 @@ function addToCart(productType, length, volume, pricePerMp) {
     } else {
         showToast(`Dodano do koszyka: ${productType}, ${length} cm, ${volume ? volume + ' mp' : ''}`);
     }
-}
-
-function getCart() {
-    const cart = localStorage.getItem('cart');
-    return cart ? JSON.parse(cart) : [];
-}
-
-function saveCart(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function deleteFromCart(productType, length) {

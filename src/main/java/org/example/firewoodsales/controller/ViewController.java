@@ -20,4 +20,9 @@ public class ViewController {
     public String cartView(){
         return "cart";
     }
+
+    @GetMapping("/checkout")
+    String checkoutView(){
+        return "checkout";
+    }
 }
