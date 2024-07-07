@@ -17,4 +17,6 @@ public class Product  {
     @Column
     private int length;
 
+    @Column
+    private int volume;
 }

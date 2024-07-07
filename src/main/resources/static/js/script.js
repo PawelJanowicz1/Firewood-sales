@@ -72,24 +72,36 @@ async function sendContactForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const addToCartButtons = [
-        { type: 'Buk', id: 'addToCart1', selectId: 'bukLength' },
-        { type: 'Dąb', id: 'addToCart2', selectId: 'dabLength' },
-        { type: 'Grab', id: 'addToCart3', selectId: 'grabLength' },
-        { type: 'Sosna', id: 'addToCart4', selectId: 'sosnaLength' },
-        { type: 'Brzoza', id: 'addToCart5', selectId: 'brzozaLength' },
-        { type: 'Drewno do rozpałki', id: 'addToCart6', selectId: 'rozpalkaQuantity' }
+        { type: 'Buk', id: 'addToCart1', lengthSelectId: 'bukLength', volumeSelectId: 'bukVolume' },
+        { type: 'Dąb', id: 'addToCart2', lengthSelectId: 'dabLength', volumeSelectId: 'dabVolume' },
+        { type: 'Grab', id: 'addToCart3', lengthSelectId: 'grabLength', volumeSelectId: 'grabVolume' },
+        { type: 'Sosna', id: 'addToCart4', lengthSelectId: 'sosnaLength', volumeSelectId: 'sosnaVolume' },
+        { type: 'Brzoza', id: 'addToCart5', lengthSelectId: 'brzozaLength', volumeSelectId: 'brzozaVolume' },
+        { type: 'Drewno do rozpałki', id: 'addToCart6', lengthSelectId: 'rozpalkaQuantity' }
     ];
 
     addToCartButtons.forEach(button => {
         const addToCartButton = document.getElementById(button.id);
         if (addToCartButton) {
             addToCartButton.addEventListener('click', () => {
-                const lengthSelect = document.getElementById(button.selectId);
+                const lengthSelect = document.getElementById(button.lengthSelectId);
                 if (lengthSelect) {
                     const length = lengthSelect.value;
-                    addToCart(button.type, length);
+                    let volume = null;
+
+                    if (button.type !== 'Drewno do rozpałki') {
+                        const volumeSelect = document.getElementById(button.volumeSelectId);
+                        if (volumeSelect) {
+                            volume = volumeSelect.value;
+                        }
+                    }
+                    if (length) {
+                        addToCart(button.type, length, volume);
+                    } else {
+                        alert('Nie wybrano rozmiaru drewna');
+                    }
                 } else {
-                    console.error(`Element with ID ${button.selectId} not found.`);
+                    console.error(`Element with ID ${button.lengthSelectId} not found.`);
                 }
             });
         } else {
@@ -105,18 +117,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function addToCart(productType, length) {
-    if (!length) {
-        alert('Nie wybrano rozmiaru drewna');
-        return;
-    }
+function addToCart(productType, length, volume) {
+    const product = {
+        type: productType,
+        length: parseInt(length, 10),
+        volume: volume ? parseInt(volume, 10) : undefined
+    };
 
-    const product = { type: productType, length: parseInt(length, 10) };
     const cart = getCart();
     cart.push(product);
     saveCart(cart);
 
-    alert(`Dodano do koszyka: ${productType}, ${length} cm`);
+    if (productType === 'Drewno do rozpałki') {
+        showToast(`Dodano do koszyka: ${productType}, ${length} szt.`);
+    } else {
+        showToast(`Dodano do koszyka: ${productType}, ${length} cm, ${volume ? volume + ' mp' : ''}`);
+    }
 }
 
 function getCart() {

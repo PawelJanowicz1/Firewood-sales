@@ -14361,3 +14361,10 @@ address a:active {
     width: 100%;
     object-fit: cover;
 }
+
+.toast-container {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1055;
+}

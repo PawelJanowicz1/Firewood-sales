@@ -11,11 +11,6 @@ public class ViewController {
         return "offer";
     }
 
-    @GetMapping("/pricing")
-    String pricingView(){
-        return "pricing";
-    }
-
     @GetMapping("/contact")
     String contactView(){
         return "contact";
