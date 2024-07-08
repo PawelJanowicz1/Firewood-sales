@@ -139,10 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function addToCart(productType, length, volume, price) {
     const product = {
         type: productType,
-        length: parseInt(length, 10),
-        volume: volume ? parseInt(volume, 10) : undefined,
-        price: price
+        volume: productType === 'Drewno do rozpałki' ? parseInt(length, 10) : parseInt(volume, 10),
+        price: productType === 'Drewno do rozpałki' ? 20 : price
     };
+
+    if (productType !== 'Drewno do rozpałki') {
+        product.length = parseInt(length, 10);
+    }
 
     const cart = getCart();
     cart.push(product);
@@ -154,6 +157,7 @@ function addToCart(productType, length, volume, price) {
         showToast(`Dodano do koszyka: ${productType}, ${length} cm, ${volume ? volume + ' mp' : ''}`);
     }
 }
+
 
 function deleteFromCart(productType, length) {
     let cart = getCart();

@@ -17,13 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const storedCart = localStorage.getItem('cart');
         const cartItems = storedCart ? JSON.parse(storedCart) : [];
         const orderedProducts = cartItems.map(item => {
-            const product = {
-                type: item.type,
-                length: item.length,
-                volume: item.volume,
-                price: item.price
-            };
-            return product;
+            if (item.type === 'Drewno do rozpałki') {
+                return {
+                    type: item.type,
+                    volume: item.volume,
+                    price: item.price
+                };
+            } else {
+                return {
+                    type: item.type,
+                    length: item.length,
+                    volume: item.volume,
+                    price: item.price
+                };
+            }
         });
 
         const formData = {

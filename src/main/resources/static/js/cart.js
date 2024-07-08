@@ -48,7 +48,7 @@ function displayCart() {
 
         let displayText = '';
         if (product.type === 'Drewno do rozpałki') {
-            displayText = `${product.type}, ${product.length} szt.`;
+            displayText = `${product.type}, ${product.volume} szt.`;
         } else {
             displayText = `${product.type}, ${product.length} cm, ${product.volume} mp`;
         }
@@ -68,6 +68,7 @@ function displayCart() {
     cartContent.appendChild(list);
     calculateTotal(cart);
 }
+
 
 function deleteFromCart(index) {
     let cart = getCart();
@@ -124,14 +125,14 @@ function calculateTotal(cart) {
 
     cart.forEach(product => {
         if (product.type === 'Drewno do rozpałki') {
-            kindlingCount++;
+            kindlingCount += product.volume;
         } else {
             total += product.volume * prices[product.type];
         }
     });
 
     if (kindlingCount > 0) {
-        total += prices['Drewno do rozpałki'];
+        total += kindlingCount * prices['Drewno do rozpałki']
     }
 
     const totalElement = document.createElement('p');
