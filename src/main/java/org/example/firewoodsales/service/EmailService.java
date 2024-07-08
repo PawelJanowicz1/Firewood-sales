@@ -60,6 +60,7 @@ public class EmailService {
 
     public void sendOrderEmail(OrderRequest orderRequest) {
         SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+        SimpleMailMessage simpleMailMessageToClient = new SimpleMailMessage();
         simpleMailMessage.setFrom(fromEmail);
         simpleMailMessage.setTo(adminEmail);
 
@@ -110,9 +111,45 @@ public class EmailService {
 
         sb.append("\nŁączna kwota zamówienia: ").append(totalAmount).append(" zł");
 
+        StringBuilder sb2 = new StringBuilder();
+
+        sb2.append("Twoje zamówienie zostało złożone na poniższe dane:").append("\n");
+        sb2.append("Imię: ").append(firstName).append("\n");
+        sb2.append("Nazwisko: ").append(lastName).append("\n");
+        sb2.append("Numer telefonu: ").append(phoneNumber).append("\n");
+        sb2.append("Adres: ").append(street).append(" ").append(houseNumber);
+        if (apartmentNumber != null && !apartmentNumber.isEmpty()) {
+            sb2.append("/").append(apartmentNumber);
+        }
+        sb2.append("\n");
+        sb2.append("Kod pocztowy: ").append(zipCode).append("\n").append("\n");
+        sb2.append("Zamówione produkty:\n");
+        orderedProducts.forEach(product -> {
+            sb2.append("- ").append(product.type()).append(": ");
+            if (product.type().equals("Drewno do rozpałki")) {
+                sb2.append("ilość: ").append(product.volume()).append(" szt");
+            } else {
+                sb2.append("Długość szczapy: ").append(product.length()).append(" cm, ");
+                sb2.append("ilość: ").append(product.volume()).append(" mp");
+            }
+            sb2.append(", Kwota do zapłaty: ").append(product.price()).append(" zł");
+            sb2.append("\n");
+        });
+        sb2.append("\n");
+        sb2.append("\n");
+
+        sb2.append("Do zobaczenia wkrótce!");
+
         simpleMailMessage.setSubject(subject);
         simpleMailMessage.setText(sb.toString());
 
+        simpleMailMessageToClient.setFrom(fromEmail);
+        simpleMailMessageToClient.setTo(email);
+
+        simpleMailMessageToClient.setSubject("Dziękujemy za złożenie zamówienia! - Drewko-drewko");
+        simpleMailMessageToClient.setText(sb2.toString());
+
+        mailSender.send(simpleMailMessageToClient);
         mailSender.send(simpleMailMessage);
 
         Client client = new Client(firstName + " " + lastName, email, phoneNumber, sb.toString());
