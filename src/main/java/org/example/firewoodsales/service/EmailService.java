@@ -113,7 +113,7 @@ public class EmailService {
 
         StringBuilder sb2 = new StringBuilder();
 
-        sb2.append("Twoje zamówienie zostało złożone na poniższe dane:").append("\n");
+        sb2.append("Twoje zamówienie zostało złożone na poniższe dane:").append("\n").append("\n");
         sb2.append("Imię: ").append(firstName).append("\n");
         sb2.append("Nazwisko: ").append(lastName).append("\n");
         sb2.append("Numer telefonu: ").append(phoneNumber).append("\n");
