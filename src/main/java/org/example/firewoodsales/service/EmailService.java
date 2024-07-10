@@ -68,6 +68,7 @@ public class EmailService {
         String lastName = orderRequest.lastName();
         String phoneNumber = orderRequest.phoneNumber();
         String street = orderRequest.street();
+        String city = orderRequest.city();
         String houseNumber = orderRequest.houseNumber();
         String apartmentNumber = orderRequest.apartmentNumber();
         String zipCode = orderRequest.zipCode();
@@ -76,6 +77,7 @@ public class EmailService {
 
         String subject = "Nowe zamówienie od " + firstName + " " + lastName;
         StringBuilder sb = new StringBuilder();
+        sb.append("Dane klienta: ").append("\n").append("\n");
         sb.append("Imię: ").append(firstName).append("\n");
         sb.append("Nazwisko: ").append(lastName).append("\n");
         sb.append("Numer telefonu: ").append(phoneNumber).append("\n");
@@ -83,6 +85,8 @@ public class EmailService {
         if (apartmentNumber != null && !apartmentNumber.isEmpty()) {
             sb.append("/").append(apartmentNumber);
         }
+        sb.append("\n");
+        sb.append("Miasto:").append(" ").append(city);
         sb.append("\n");
         sb.append("Kod pocztowy: ").append(zipCode).append("\n");
         if (email != null && !email.isEmpty()) {
@@ -92,7 +96,7 @@ public class EmailService {
         }
         sb.append("\n");
 
-        sb.append("Zamówione produkty:\n");
+        sb.append("Zamówione produkty:\n").append("\n");
         orderedProducts.forEach(product -> {
             sb.append("- ").append(product.type()).append(": ");
             if (product.type().equals("Drewno do rozpałki")) {
@@ -122,8 +126,10 @@ public class EmailService {
             sb2.append("/").append(apartmentNumber);
         }
         sb2.append("\n");
+        sb2.append("Miasto:").append(" ").append(city);
+        sb2.append("\n");
         sb2.append("Kod pocztowy: ").append(zipCode).append("\n").append("\n");
-        sb2.append("Zamówione produkty:\n");
+        sb2.append("Zamówione produkty:\n").append("\n");
         orderedProducts.forEach(product -> {
             sb2.append("- ").append(product.type()).append(": ");
             if (product.type().equals("Drewno do rozpałki")) {
