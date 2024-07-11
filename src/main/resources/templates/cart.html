@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drewno kominkowe - Koszyk</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="background-color full-height">
 <nav class="navbar navbar-expand-lg navbar-custom custom-border-2 d-none d-lg-flex">
@@ -25,21 +26,29 @@
         </ul>
     </div>
 </nav>
-<nav class="navbar-custom custom-border-2 d-lg-none navbar-mobile">
+<nav class="navbar-custom-mobile navbar-mobile d-lg-none">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="mobileNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link bigger-font hover-lift px-4" href="/">Kim jesteśmy?</a>
+                    <a class="nav-link active-nav" href="/">
+                        <i class="fas fa-users fa-3x"></i>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link bigger-font hover-lift px-4" href="offer">Oferta</a>
+                    <a class="nav-link" href="offer">
+                        <i class="fas fa-handshake fa-3x"></i>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link bigger-font hover-lift px-4" href="contact">Kontakt</a>
+                    <a class="nav-link" href="contact">
+                        <i class="fas fa-envelope fa-3x"></i>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link bigger-font hover-lift px-4 active-nav" href="cart">Koszyk</a>
+                <li class="nav-item active-nav">
+                    <a class="nav-link" href="cart">
+                        <i class="fas fa-shopping-cart fa-3x"></i>
+                    </a>
                 </li>
             </ul>
         </div>
