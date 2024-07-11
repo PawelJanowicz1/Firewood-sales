@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', async (event) => { // Dodano 'async' tutaj
+    contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
         await sendContactForm();
     });

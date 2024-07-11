@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 
@@ -42,9 +43,9 @@ public class EmailService {
         StringBuilder sb = new StringBuilder();
         sb.append("Imię:  ").append(name).append("\n");
         sb.append(("Email:  ")).append(email).append("\n");
-        if(phoneNumber != null && !phoneNumber.isEmpty()) {
+        if (phoneNumber != null && !phoneNumber.isEmpty()) {
             sb.append("Numer Telefonu:  ").append(phoneNumber).append("\n");
-        }else {
+        } else {
             phoneNumber = "Klient nie podał numeru telefonu";
             sb.append(phoneNumber).append("\n");
         }
@@ -138,9 +139,18 @@ public class EmailService {
                 sb2.append("Długość szczapy: ").append(product.length()).append(" cm, ");
                 sb2.append("ilość: ").append(product.volume()).append(" mp");
             }
-            sb2.append(", Kwota do zapłaty: ").append(product.price()).append(" zł");
+            sb2.append(", Kwota: ").append(product.price()).append(" zł");
             sb2.append("\n");
         });
+
+        double totalAmount2 = orderedProducts.stream()
+                .mapToDouble(ProductRequest::price)
+                .sum();
+
+        sb2.append("\nŁączna kwota zamówienia: ").append(totalAmount2).append(" zł");
+
+
+        sb2.append("\n");
         sb2.append("\n");
         sb2.append("\n");
 

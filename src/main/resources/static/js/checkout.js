@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             houseNumber: document.getElementById('houseNumber').value,
             apartmentNumber: document.getElementById('apartmentNumber').value,
             zipCode: document.getElementById('zipCode').value,
+            city: document.getElementById('city').value,
             email: document.getElementById('email').value,
             orderedProducts: orderedProducts
         };
