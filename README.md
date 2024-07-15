@@ -4,10 +4,12 @@ This website, hosted on a VPS server, has been created for my client, who sells 
 
 ## :hammer_and_wrench: Used Technologies
 
+* Java
 * Spring (Boot, Data)
 * JPA / Hibernate
 * MySql
 * Thymeleaf
+* Javascript
 * HTML, CSS
 * Maven
 * Lombok
