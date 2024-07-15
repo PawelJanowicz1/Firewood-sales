@@ -16,12 +16,14 @@ public class EmailController {
 
     private final EmailService emailService;
 
+    @CrossOrigin(origins = "https://drewno-kominkowe-torun.pl")
     @PostMapping("/send-email")
     ResponseEntity<?> sendEmail(@RequestBody @Valid ContactRequest contactRequest) {
         emailService.sendSimpleEmail(contactRequest);
         return ResponseEntity.ok("Email has been sent successfully");
     }
 
+    @CrossOrigin(origins = "https://drewno-kominkowe-torun.pl")
     @PostMapping("/send-cart-email")
     ResponseEntity<?> sendCartEmail(@RequestBody OrderRequest orderRequest) {
         emailService.sendOrderEmail(orderRequest);
