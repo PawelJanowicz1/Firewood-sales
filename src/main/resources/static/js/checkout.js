@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             orderedProducts: orderedProducts
         };
         try {
-            const response = await fetch('http://localhost:8086/email/send-cart-email', {
+            const response = await fetch('https://drewno-kominkowe-torun.pl/email/send-cart-email', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
