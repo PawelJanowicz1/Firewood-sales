@@ -13852,6 +13852,7 @@ textarea.form-control-lg {
     margin: 0 auto;
     padding: 20px;
     border-radius: 10px;
+    position: relative;
     color: whitesmoke;
     background-color: rgb(255,248,220);
 }
@@ -14480,4 +14481,13 @@ address a:active {
 
 .mt-custom {
     margin-top: 3rem;
+}
+
+.form-note {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.875rem;
+    font-family: "Copperplate", "Arial", serif;
+    color: rgba(0, 0, 0, 0.75);
 }
