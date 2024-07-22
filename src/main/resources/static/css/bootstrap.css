@@ -81,7 +81,7 @@
     --bs-body-color: #212529;
     --bs-body-color-rgb: 33, 37, 41;
     --bs-body-bg: #fff;
-    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-body-bg-rgb: 165, 42, 42; !important;
     --bs-emphasis-color: #000;
     --bs-emphasis-color-rgb: 0, 0, 0;
     --bs-secondary-color: rgba(33, 37, 41, 0.75);
@@ -6065,13 +6065,13 @@ textarea.form-control-lg {
 
 .toast {
     --bs-toast-zindex: 1090;
-    --bs-toast-padding-x: 0.75rem;
-    --bs-toast-padding-y: 0.5rem;
-    --bs-toast-spacing: 1.5rem;
+    --bs-toast-padding-x: 0.1rem;
+    --bs-toast-padding-y: 0.1rem;
+    --bs-toast-spacing: 0.1rem;
     --bs-toast-max-width: 350px;
     --bs-toast-font-size: 0.875rem;
     --bs-toast-color: ;
-    --bs-toast-bg: rgba(var(--bs-body-bg-rgb), 0.85);
+    --bs-toast-bg: rgba(var(--bs-body-bg-rgb), 0.85); !important;
     --bs-toast-border-width: var(--bs-border-width);
     --bs-toast-border-color: var(--bs-border-color-translucent);
     --bs-toast-border-radius: var(--bs-border-radius);
@@ -6084,7 +6084,7 @@ textarea.form-control-lg {
     font-size: var(--bs-toast-font-size);
     color: var(--bs-toast-color);
     pointer-events: auto;
-    background-color: var(--bs-toast-bg);
+    background-color: var(--bs-toast-bg); !important;
     background-clip: padding-box;
     border: var(--bs-toast-border-width) solid var(--bs-toast-border-color);
     box-shadow: var(--bs-toast-box-shadow);
@@ -13840,13 +13840,20 @@ textarea.form-control-lg {
     font-family: "Copperplate", "Arial", serif;
 }
 
+.font-family-4 {
+    font-family: "Charm", "Arial", serif;
+    color: rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 .form-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: gray(0);
     border-radius: 10px;
-    color: white;
+    color: whitesmoke;
+    background-color: rgb(255,248,220);
 }
 
 .pricing-table {
@@ -14004,6 +14011,10 @@ textarea.form-control-lg {
 
 .custom-border-2 {
     /*border-bottom: 2px double #d5dfef;*/
+}
+
+.custom-border-3 {
+    border-bottom: 2px double #d5dfef;
 }
 
 .card-2 {
