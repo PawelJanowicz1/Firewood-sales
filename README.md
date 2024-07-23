@@ -26,7 +26,7 @@ Contact us      |  Cart
 
 Checkout      |  Order placed
 :------------------------:|:-------------------------:
-![Login page](src/main/resources/static/images/checkout.png)  |  ![Order placed](src/main/resources/static/images/success.png)
+![Login page](src/main/resources/static/images/checkout-page.png)  |  ![Order placed](src/main/resources/static/images/success-page.png)
 
 New order from client      |  Order confirmation
 :------------------------:|:-------------------------:
