@@ -14312,12 +14312,14 @@ textarea.form-control-lg {
     margin-top: -30px;
     border: 1px solid #dc7b1f;
     border-radius: 5px;
-    background-color: #ffffff;
+    background-color: rgb(255,248,220);
     color: rgba(0, 0, 0, 0.75);
     text-align: center;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    font-family: "Charm", "Arial", serif;
+    font-weight: bold;
 }
 
 address a {
