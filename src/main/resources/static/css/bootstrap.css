@@ -13847,6 +13847,11 @@ textarea.form-control-lg {
     font-size: 2rem;
 }
 
+.font-family-5 {
+    font-family: "Copperplate", "Arial", serif;
+    color: black;
+}
+
 .form-container {
     max-width: 600px;
     margin: 0 auto;
@@ -14493,7 +14498,7 @@ address a:active {
 }
 
 .container-2 {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255,248,220);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -14508,4 +14513,10 @@ address a:active {
 
 .card-height-2 {
     min-height: 400px; !important;
+}
+
+.btn-container{
+    align-items: center;
+    display: inline-block;
+    margin: 10px;
 }
