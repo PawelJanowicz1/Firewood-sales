@@ -2357,6 +2357,12 @@ progress {
     margin-bottom: 0.5rem;
 }
 
+.form-label-2 {
+        display: block; !important;
+        margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
 .col-form-label {
     padding-top: calc(0.375rem + var(--bs-border-width));
     padding-bottom: calc(0.375rem + var(--bs-border-width));
@@ -3638,6 +3644,23 @@ textarea.form-control-lg {
     --bs-btn-disabled-color: #ff0000 !important;
     --bs-btn-disabled-bg: transparent !important;
     --bs-btn-disabled-border-color: #ff0000 !important;
+    --bs-gradient: none !important;
+}
+
+.btn-outline-primary-3 {
+    --bs-btn-color: #fff !important;
+    --bs-btn-bg: rgb(165, 42, 42) !important;
+    --bs-btn-border-color: rgb(165, 42, 42) !important;
+    --bs-btn-hover-color: rgb(165, 42, 42) !important;
+    --bs-btn-hover-bg: #fff !important;
+    --bs-btn-hover-border-color: rgb(165, 42, 42) !important;
+    --bs-btn-focus-shadow-rgb: 165, 42, 42 !important;
+    --bs-btn-active-color: #fff !important;
+    --bs-btn-active-bg: rgb(165, 42, 42) !important;
+    --bs-btn-active-border-color: rgb(165, 42, 42) !important;
+    --bs-btn-disabled-color: rgb(165, 42, 42) !important;
+    --bs-btn-disabled-bg: transparent !important;
+    --bs-btn-disabled-border-color: rgb(165, 42, 42) !important;
     --bs-gradient: none !important;
 }
 
@@ -14549,4 +14572,10 @@ address a:active {
     align-items: center;
     display: inline-block;
     margin: 10px;
+}
+
+.btn-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
