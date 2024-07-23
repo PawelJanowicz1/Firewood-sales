@@ -31,3 +31,7 @@ Checkout      |  Order placed
 New order from client      |  Order confirmation
 :------------------------:|:-------------------------:
 ![Login page](src/main/resources/static/images/new-order-from-client.png)  |  ![Order placed](src/main/resources/static/images/order-confirmation.png)
+
+Landing page mobile     |  Offer mobile
+:------------------------:|:-------------------------:
+![Login page](src/main/resources/static/images/landing-page-mobile.png)  |  ![Order placed](src/main/resources/static/images/offer-page-mobile.png)
