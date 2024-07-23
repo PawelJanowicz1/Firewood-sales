@@ -14520,7 +14520,7 @@ address a:active {
 }
 
 .custom-icon-color {
-    color: #d5dfef;
+    color: rgb(255, 248, 220);
 }
 
 .mt-custom {
@@ -14578,4 +14578,8 @@ address a:active {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.nav-text{
+    color: rgb(255, 248, 220);
 }
