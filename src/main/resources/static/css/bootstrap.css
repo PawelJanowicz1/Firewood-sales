@@ -14009,7 +14009,7 @@ textarea.form-control-lg {
 }
 
 .navbar-custom .navbar-nav .nav-link:hover {
-    color: rgb(165,42,42);
+    color: rgb(154, 67, 67);
     transform: translateY(-5px);
 }
 
@@ -14582,4 +14582,8 @@ address a:active {
 
 .nav-text{
     color: rgb(255, 248, 220);
+}
+
+.nav-text-2{
+    color: rgb(165,42,42);
 }
