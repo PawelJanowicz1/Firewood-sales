@@ -3625,6 +3625,22 @@ textarea.form-control-lg {
     --bs-gradient: none !important;
 }
 
+.btn-outline-primary-2 {
+    --bs-btn-color: #ff0000 !important;
+    --bs-btn-border-color: #ff0000 !important;
+    --bs-btn-hover-color: #fff !important;
+    --bs-btn-hover-bg: #ff0000 !important;
+    --bs-btn-hover-border-color: #ff0000 !important;
+    --bs-btn-focus-shadow-rgb: 255, 0, 0 !important;
+    --bs-btn-active-color: #fff !important;
+    --bs-btn-active-bg: #ff0000 !important;
+    --bs-btn-active-border-color: #ff0000 !important;
+    --bs-btn-disabled-color: #ff0000 !important;
+    --bs-btn-disabled-bg: transparent !important;
+    --bs-btn-disabled-border-color: #ff0000 !important;
+    --bs-gradient: none !important;
+}
+
 .btn-outline-secondary {
     --bs-btn-color: #6c757d;
     --bs-btn-border-color: #6c757d;
@@ -14509,6 +14525,20 @@ address a:active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.container-3 {
+    background: rgb(255, 248, 220); /* Lekko przezroczyste tło */
+    padding: 30px; /* Zwiększone wypełnienie */
+    border-radius: 15px; /* Zaokrąglone rogi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Delikatny cień */
+    width: 80%; /* Szerokość formularza */
+    max-width: 600px; /* Maksymalna szerokość */
+    margin: 0 auto; /* Wyśrodkowanie formularza */
+    text-align: left; /* Tekst wyrównany do lewej */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Odstęp między elementami */
 }
 
 .card-height-2 {

@@ -55,7 +55,7 @@ function displayCart() {
         item.textContent = displayText;
 
         const deleteButton = document.createElement('button');
-        deleteButton.className = 'btn btn-danger btn-sm btn-container';
+        deleteButton.className = 'btn btn-sm btn-block btn-outline-primary-2 btn-container';
         deleteButton.textContent = 'Usuń';
         deleteButton.addEventListener('click', () => {
             deleteFromCart(index);
