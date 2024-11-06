@@ -2,7 +2,6 @@ package org.example.firewoodsales.POJO;
 
 import lombok.Data;
 import org.example.firewoodsales.model.Product;
-
 import java.util.ArrayList;
 import java.util.List;
 
