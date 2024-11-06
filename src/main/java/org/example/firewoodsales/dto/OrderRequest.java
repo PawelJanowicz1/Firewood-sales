@@ -8,12 +8,12 @@ import java.util.List;
 public record OrderRequest(
         @NotBlank String firstName,
         @NotBlank String lastName,
-        @Pattern(regexp = "\\d{9}", message = "Numer telefonu musi zawierać 9 cyfr") String phoneNumber,
+        @Pattern(regexp = "\\d{9}", message = "The phone number must contain 9 digits") String phoneNumber,
         @NotBlank String street,
         @NotBlank String city,
         @NotBlank String houseNumber,
         String apartmentNumber,
-        @Pattern(regexp = "\\d{2}-\\d{3}", message = "Kod pocztowy musi być w formacie xx-xxx") String zipCode,
+        @Pattern(regexp = "\\d{2}-\\d{3}", message = "The postal code must be in the format xx-xxx") String zipCode,
         @Email(message = "Email should be valid") String email,
         List<ProductRequest> orderedProducts
 ) {}

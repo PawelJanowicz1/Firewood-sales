@@ -15,6 +15,6 @@ public record ContactRequest(
         @NotBlank
         String message,
 
-        @Pattern(regexp = "^\\d{9}$", message = "nie podano dobrze numeru telefonu")
+        @Pattern(regexp = "^\\d{9}$", message = "The phone number is not provided correctly")
         String phoneNumber
 ) {}
