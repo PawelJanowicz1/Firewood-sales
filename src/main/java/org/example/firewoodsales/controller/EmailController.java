@@ -23,10 +23,10 @@ public class EmailController {
         return ResponseEntity.ok("Email has been sent successfully");
     }
 
-    @CrossOrigin(origins = "https://drewno-kominkowe-torun.pl")
+    @CrossOrigin(origins = {"https://drewno-kominkowe-torun.pl", "http://localhost:8086"})
     @PostMapping("/send-cart-email")
     ResponseEntity<?> sendCartEmail(@RequestBody OrderRequest orderRequest) {
         emailService.sendOrderEmail(orderRequest);
-        return ResponseEntity.ok("Email z zamówieniem został wysłany pomyślnie");
+        return ResponseEntity.ok("Email with this order has been sent successfully");
     }
 }
