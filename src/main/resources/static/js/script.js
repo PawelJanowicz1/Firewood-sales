@@ -202,7 +202,12 @@ async function sendContactForm() {
     const phoneNumber = document.getElementById('phoneNumber').value;
     const message = document.getElementById('message').value;
 
+    const submitButton = document.querySelector('button[type="submit"]');
+
+    disableSubmitButton(submitButton);
+
     if (!validateForm(name, email, phoneNumber, message)) {
+        enableSubmitButton(submitButton);
         return;
     }
 
@@ -214,7 +219,7 @@ async function sendContactForm() {
     };
 
     try {
-        const response = await fetch('https://drewno-kominkowe-torun.pl/email/send-email', {
+        const response = await fetch('http://localhost:8086/email/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',
@@ -224,7 +229,7 @@ async function sendContactForm() {
         });
 
         if (response.ok) {
-            document.getElementById('contactForm').remove();
+            document.getElementById('contactForm').style.display = 'none';
             const formContainer = document.getElementsByClassName('form-container')[0];
             formContainer.classList.remove('form-container', 'custom-border');
             document.getElementsByClassName('successMessage')[0].style.display = 'block';
@@ -234,7 +239,21 @@ async function sendContactForm() {
         }
     } catch (error) {
         alert('Wystąpił błąd: ' + error.message);
+    } finally {
+        enableSubmitButton(submitButton);
     }
+}
+
+function disableSubmitButton(button) {
+    button.disabled = true;
+    button.innerText = 'Wysyłanie...';
+    button.classList.add('btn-disabled');
+}
+
+function enableSubmitButton(button) {
+    button.disabled = false;
+    button.innerText = 'Wyślij';
+    button.classList.remove('btn-disabled');
 }
 
 document.addEventListener('DOMContentLoaded', () => {

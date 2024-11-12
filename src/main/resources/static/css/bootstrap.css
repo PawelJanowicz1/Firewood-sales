@@ -14589,3 +14589,9 @@ address a:active {
 .nav-text-2{
     color: rgb(165,42,42);
 }
+
+.btn-disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
