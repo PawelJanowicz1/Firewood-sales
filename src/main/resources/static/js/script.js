@@ -219,7 +219,7 @@ async function sendContactForm() {
     };
 
     try {
-        const response = await fetch('http://localhost:8086/email/send-email', {
+        const response = await fetch('https://drewno-kominkowe-torun.pl/email/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=UTF-8',

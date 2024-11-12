@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('checkoutForm');
     const placeOrderButton = document.getElementById('placeOrder');
-    const mainContent = document.getElementById('mainContent');
-    const navbar = document.querySelector('.navbar');
 
     placeOrderButton.addEventListener('click', async (event) => {
         event.preventDefault();
         if (form.checkValidity()) {
+            disableSubmitButton(placeOrderButton);
             await placeOrder();
         } else {
             form.classList.add('was-validated');
@@ -65,6 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             alert('Wystąpił błąd: ' + error.message);
+        } finally {
+            enableSubmitButton(placeOrderButton);
         }
     }
 });
+
+function disableSubmitButton(button) {
+    button.disabled = true;
+    button.innerText = 'Wysyłanie...';
+    button.classList.add('btn-disabled');
+}
+
+function enableSubmitButton(button) {
+    button.disabled = false;
+    button.innerText = 'Zamów';
+    button.classList.remove('btn-disabled');
+}
