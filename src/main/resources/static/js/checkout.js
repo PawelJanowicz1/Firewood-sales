@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Proszę wprowadzić numer domu.');
         }
 
-        if (zipCodeInput.value && !zipCodePattern.test(zipCodeInput.value)) {
+        if (!zipCodeInput.value || !zipCodePattern.test(zipCodeInput.value)) {
             isValid = false;
             alert('Proszę wprowadzić poprawny kod pocztowy (format XX-XXX).');
         }
