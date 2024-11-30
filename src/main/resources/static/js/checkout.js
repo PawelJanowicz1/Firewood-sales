@@ -4,73 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     placeOrderButton.addEventListener('click', async (event) => {
         event.preventDefault();
-        if (validateForm()) {
+        if (form.checkValidity()) {
             disableSubmitButton(placeOrderButton);
             await placeOrder();
         } else {
             form.classList.add('was-validated');
         }
     });
-
-    function validateForm() {
-        let isValid = true;
-
-        const firstNameInput = document.getElementById('firstName');
-        const lastNameInput = document.getElementById('lastName');
-        const phoneNumberInput = document.getElementById('phoneNumber');
-        const streetInput = document.getElementById('street');
-        const houseNumberInput = document.getElementById('houseNumber');
-        const zipCodeInput = document.getElementById('zipCode');
-        const cityInput = document.getElementById('city');
-        const emailInput = document.getElementById('email');
-
-        const namePattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
-        const phonePattern = /^(?:\+48\s?\d{3}\s?\d{3}\s?\d{3}|\+48\d{9}|\d{9}|\d{3}\s?\d{3}\s?\d{3})$/;
-        const zipCodePattern = /^\d{2}-\d{3}$/;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!firstNameInput.value || !namePattern.test(firstNameInput.value)) {
-            isValid = false;
-            alert('Proszę wprowadzić poprawne imię (bez cyfr i znaków specjalnych).');
-        }
-
-        if (!lastNameInput.value || !namePattern.test(lastNameInput.value)) {
-            isValid = false;
-            alert('Proszę wprowadzić poprawne nazwisko (bez cyfr i znaków specjalnych).');
-        }
-
-        if (!phoneNumberInput.value || !phonePattern.test(phoneNumberInput.value)) {
-            isValid = false;
-            alert('Proszę wprowadzić poprawny numer telefonu.');
-        }
-
-        if (!emailInput.value || !emailPattern.test(emailInput.value)) {
-            isValid = false;
-            alert('Proszę wprowadzić poprawny adres email.');
-        }
-
-        if (!streetInput.value) {
-            isValid = false;
-            alert('Proszę wprowadzić nazwę ulicy.');
-        }
-
-        if (!houseNumberInput.value) {
-            isValid = false;
-            alert('Proszę wprowadzić numer domu.');
-        }
-
-        if (!zipCodeInput.value || !zipCodePattern.test(zipCodeInput.value)) {
-            isValid = false;
-            alert('Proszę wprowadzić poprawny kod pocztowy (format XX-XXX).');
-        }
-
-        if (!cityInput.value) {
-            isValid = false;
-            alert('Proszę wprowadzić nazwę miasta.');
-        }
-
-        return isValid;
-    }
 
     async function placeOrder() {
         const storedCart = localStorage.getItem('cart');
