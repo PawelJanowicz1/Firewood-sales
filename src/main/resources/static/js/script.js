@@ -8,33 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function validateForm(name, email, phoneNumber, message) {
-    const namePattern = /^[a-zA-ZąćęłńóśźżĄĘŁŃÓŚŹŻ ]+$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phonePattern = /^\d{9}$/;
 
-    if (!name || !namePattern.test(name)) {
-        alert("Imię może zawierać tylko litery, spacje i polskie znaki.");
-        return false;
-    }
+    if (!name.trim()) {document.addEventListener('DOMContentLoaded', () => {
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            await sendContactForm();
+        });
+    });
 
-    if (!email || !emailPattern.test(email)) {
-        alert("Podaj poprawny adres e-mail.");
-        return false;
-    }
 
-    if (phoneNumber && !phonePattern.test(phoneNumber)) {
-        alert("Numer telefonu musi składać się z dokładnie 9 cyfr.");
-        return false;
-    }
+        function validateForm(name, email, phoneNumber, message) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phonePattern = /^\d{9}$/;
 
-    if (!message) {
-        alert("Wiadomość jest wymagana.");
-        return false;
-    }
-
-    return true;
-}
-
+            if (!name.trim()) {
+                alert('Pole "Imię" nie może być puste.');
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert('Pole "Email" musi zawierać poprawny adres email.');
+                return false;
+            }
+            if (phoneNumber && !phonePattern.test(phoneNumber)) {
+                alert('Pole "Numer telefonu" musi zawierać 9 cyfr.');
+                return false;
+            }
+            if (!message.trim()) {
+                alert('Pole "Wiadomość" nie może być puste.');
+                return false;
+            }
+            return true;
+        }
 
         async function sendContactForm() {
             const name = document.getElementById('name').value;
