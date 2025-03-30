@@ -2,9 +2,14 @@ package org.example.firewoodsales.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @Table(name = "products_torun")
 public class Product  {
 
